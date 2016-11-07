@@ -9017,8 +9017,6 @@ function adder(a, b){
 
 var commentCountAcrossIssues = commentMap.reduce(adder, 0)
 
-
-
 var openIssues = issues.filter(function(issue){
   if (issue.state === 'open') 
 {return issue}})
@@ -9027,3 +9025,20 @@ var nonAutomaticIssues = issues.filter(function(issue){
   if (issue.body !== "This pull request has been automatically created by learn.co.")
 {return issue}})
 
+function issuing(){
+var results = document.getElementById('results')
+nonAutomaticIssues.map(function(issue){
+var actual_row = document.createElement('tr')
+results.appendChild(actual_row)
+var row1 = document.createElement('td') //
+var row2 = document.createElement('td')//
+var row3 = document.createElement('td')// 
+row1.innerHTML = issue.body
+row2.innerHTML = issue.created_at
+row3.innerHTML = issue.state
+actual_row.appendChild(row1)
+actual_row.appendChild(row2)
+actual_row.appendChild(row3)
+})}
+
+issuing()
